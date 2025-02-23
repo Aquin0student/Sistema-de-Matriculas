@@ -1,0 +1,16 @@
+USE sistema_de_matriculas;
+CREATE TABLE Professor(
+    nome VARCHAR(255)
+
+);
+
+CREATE TABLE Disciplina(
+    nome VARCHAR(60),
+    creditos INT,
+    ativa BOOLEAN
+);
+
+CREATE TABLE Universidade(
+    nome VARCHAR(255)
+)
+
