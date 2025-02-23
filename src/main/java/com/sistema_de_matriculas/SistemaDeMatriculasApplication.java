@@ -8,6 +8,7 @@ public class SistemaDeMatriculasApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SistemaDeMatriculasApplication.class, args);
+
     }
 
 }
