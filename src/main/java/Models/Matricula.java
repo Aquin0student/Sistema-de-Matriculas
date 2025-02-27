@@ -3,11 +3,13 @@ package Models;
 import Enums.StatusMatricula;
 import Enums.TipoMatricula;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Matricula {
     private Aluno aluno;
-    private Disciplina disciplina;
+    private int numeroMatricula;
+    private ArrayList<Disciplina> disciplina = new ArrayList<Disciplina>();
     private Date dataMatricula;
     private TipoMatricula tipoMatricula;
     private StatusMatricula statusMatricula;
@@ -20,12 +22,12 @@ public class Matricula {
         this.aluno = aluno;
     }
 
-    public Disciplina getDisciplina() {
+    public ArrayList<Disciplina> getDisciplina() {
         return disciplina;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    public void adicionarDisciplina(Disciplina disciplina) {
+        this.disciplina.add(disciplina);
     }
 
     public Date getDataMatricula() {
