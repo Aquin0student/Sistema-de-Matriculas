@@ -20,7 +20,7 @@ public class UniversidadeController {
         String nome = scan.nextLine();
 
         int matricula = gerarNumeroMatricula();
-        Aluno aluno = new Aluno(nome, matricula);
+//        Aluno aluno = new Aluno(nome, matricula);
     }
 
     private int gerarNumeroMatricula() {

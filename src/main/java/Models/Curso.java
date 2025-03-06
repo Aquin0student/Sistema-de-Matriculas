@@ -1,22 +1,50 @@
 package Models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 
+@Entity
 public class Curso {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nome")
+    @JsonProperty("nome")
     private String nome;
-    private int creditos;
-    private ArrayList<Disciplina> disciplina = new ArrayList<Disciplina>();
+
+    @Column(name = "creditos")
+    @JsonProperty("creditos")
+    @Nonnull
+    private Integer creditos;
+
+    @ManyToMany(mappedBy = "disciplina")
+    @JoinTable(
+            name = "disciplina_curso",
+            joinColumns = @JoinColumn(name = "disciplina_id"),
+            inverseJoinColumns = @JoinColumn(name = "curso_id")
+    )
+    private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
     public Curso(String nome, int creditos) {
         this.nome = nome;
         this.creditos = creditos;
 
     }
+
+    public Curso() {
+
+    }
+
     public void adicionarDisciplina(Disciplina disciplina){
-        this.disciplina.add(disciplina);
+        this.disciplinas.add(disciplina);
     }
 
     public void removerDisciplina(Disciplina disciplina){
-        this.disciplina.remove(disciplina);
+        this.disciplinas.remove(disciplina);
     }
 }
