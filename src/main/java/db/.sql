@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS sistema_de_matriculas;
 
 USE sistema_de_matriculas;
-    
+
 
 CREATE TABLE Professor(
     id INT AUTO_INCREMENT PRIMARY KEY,
