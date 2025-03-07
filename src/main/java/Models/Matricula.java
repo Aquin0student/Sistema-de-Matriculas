@@ -1,7 +1,7 @@
 package Models;
 
-import Enums.StatusMatricula;
-import Enums.TipoMatricula;
+import Enums.StatusDisciplina;
+import Enums.TipoDisciplina;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
@@ -35,25 +35,17 @@ public class Matricula {
     @Temporal(TemporalType.DATE)
     private Date dataMatricula;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo", nullable = false)
-    private TipoMatricula tipoMatricula;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private StatusMatricula statusMatricula;
 
 
     public Matricula() {}
 
 
-    public Matricula(Aluno aluno, int numeroMatricula, List<Disciplina> disciplinas, Date dataMatricula, TipoMatricula tipoMatricula, StatusMatricula statusMatricula) {
+    public Matricula(Aluno aluno, int numeroMatricula, List<Disciplina> disciplinas, Date dataMatricula, TipoDisciplina tipoDisciplina, StatusDisciplina statusDisciplina) {
         this.aluno = aluno;
         this.numeroMatricula = numeroMatricula;
         this.disciplinas = disciplinas;
         this.dataMatricula = dataMatricula;
-        this.tipoMatricula = tipoMatricula;
-        this.statusMatricula = statusMatricula;
     }
 
     public Long getId() { return id; }
@@ -71,9 +63,5 @@ public class Matricula {
     public Date getDataMatricula() { return dataMatricula; }
     public void setDataMatricula(Date dataMatricula) { this.dataMatricula = dataMatricula; }
 
-    public TipoMatricula getTipoMatricula() { return tipoMatricula; }
-    public void setTipoMatricula(TipoMatricula tipoMatricula) { this.tipoMatricula = tipoMatricula; }
 
-    public StatusMatricula getStatusMatricula() { return statusMatricula; }
-    public void setStatusMatricula(StatusMatricula statusMatricula) { this.statusMatricula = statusMatricula; }
 }

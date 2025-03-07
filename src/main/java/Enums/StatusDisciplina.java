@@ -1,5 +1,5 @@
 package Enums;
 
-public enum StatusMatricula {
+public enum StatusDisciplina {
     ATIVA, CANCELADA
 }

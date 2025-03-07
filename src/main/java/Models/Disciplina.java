@@ -1,5 +1,7 @@
 package Models;
 
+import Enums.StatusDisciplina;
+import Enums.TipoDisciplina;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,14 @@ public class Disciplina {
     private String nome;
     private int creditos;
     private Boolean ativo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo", nullable = false)
+    private TipoDisciplina tipoDisciplina;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private StatusDisciplina statusDisciplina;
 
     @ManyToMany(mappedBy = "disciplina")
     private List<Professor> professores;

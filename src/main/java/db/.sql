@@ -12,7 +12,9 @@ CREATE TABLE Disciplina(
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(60),
     creditos INT,
-    ativa BOOLEAN
+    ativa BOOLEAN,
+    status ENUM('ATIVA', 'CANCELADA') NOT NULL,
+    tipo ENUM('OBRIGATORIA', 'OPTATIVA') NOT NULL
 );
 
 CREATE TABLE Universidade(
@@ -40,8 +42,6 @@ CREATE TABLE Matricula(
     curso_id INT,
     numero_matricula INT,
     data_matricula DATE,
-    status ENUM('ATIVA', 'CANCELADA') NOT NULL,
-    tipo ENUM('OBRIGATORIA', 'OPTATIVA') NOT NULL,
     FOREIGN KEY (aluno_id) REFERENCES aluno(id),
     FOREIGN KEY (curso_id) REFERENCES curso(id)
 );

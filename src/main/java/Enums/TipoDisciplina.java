@@ -1,5 +1,5 @@
 package Enums;
 
-public enum TipoMatricula {
+public enum TipoDisciplina {
     OBRIGATORIA, OPTATIVA
 }
