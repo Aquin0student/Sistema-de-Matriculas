@@ -17,14 +17,14 @@ public class Curso {
     @JsonProperty("nome")
     private String nome;
 
-    @Column(name = "creditos")
+    @Column(name = "numCreditos")
     @JsonProperty("creditos")
     @Nonnull
     private Integer creditos;
 
     @ManyToMany(mappedBy = "disciplina")
     @JoinTable(
-            name = "disciplina_curso",
+            name = "curso_disciplina",
             joinColumns = @JoinColumn(name = "disciplina_id"),
             inverseJoinColumns = @JoinColumn(name = "curso_id")
     )
