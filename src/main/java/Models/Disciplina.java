@@ -1,33 +1,16 @@
 package Models;
 
-import Enums.StatusDisciplina;
-import Enums.TipoDisciplina;
-import jakarta.persistence.*;
 import java.util.List;
 
-@Entity
 public class Disciplina {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
     private int creditos;
     private Boolean ativo;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo", nullable = false)
-    private TipoDisciplina tipoDisciplina;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private StatusDisciplina statusDisciplina;
-
-    @ManyToMany(mappedBy = "disciplina")
+    //private TipoDisciplina tipoDisciplina;
+    //private StatusDisciplina statusDisciplina;
     private List<Professor> professores;
-
-    @OneToMany(mappedBy = "disciplina")
     private List<Matricula> matriculas;
 
     public Disciplina() {
@@ -38,10 +21,6 @@ public class Disciplina {
         this.nome = nome;
         this.creditos = creditos;
         this.ativo = true;
-    }
-
-    public List<Matricula> getMatriculas() {
-        return matriculas;
     }
 
     // Getters e Setters
@@ -77,11 +56,35 @@ public class Disciplina {
         this.ativo = ativo;
     }
 
+    public TipoDisciplina getTipoDisciplina() {
+        return tipoDisciplina;
+    }
+
+    public void setTipoDisciplina(TipoDisciplina tipoDisciplina) {
+        this.tipoDisciplina = tipoDisciplina;
+    }
+
+    public StatusDisciplina getStatusDisciplina() {
+        return statusDisciplina;
+    }
+
+    public void setStatusDisciplina(StatusDisciplina statusDisciplina) {
+        this.statusDisciplina = statusDisciplina;
+    }
+
     public List<Professor> getProfessores() {
         return professores;
     }
 
     public void setProfessores(List<Professor> professores) {
         this.professores = professores;
+    }
+
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
     }
 }
