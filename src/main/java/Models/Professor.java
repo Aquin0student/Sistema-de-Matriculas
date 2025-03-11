@@ -1,26 +1,13 @@
 package Models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-@Entity
+
 public class Professor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name =  "nome")
-    @JsonProperty("nome")
     private String nome;
-
-    @ManyToMany
-    @JoinTable(
-            name = "professor_disciplina",
-            joinColumns = @JoinColumn(name = "professor_id"),
-            inverseJoinColumns = @JoinColumn(name = "disciplina_id")
-    )
     private List<Disciplina> disciplinas;
 
     public Professor() {}
@@ -29,16 +16,18 @@ public class Professor {
         this.nome = nome;
     }
 
+    // Esse metodo deve ficar no controller?
     public void adicionarDisciplina(Disciplina disciplina) {
         disciplinas.add(disciplina);
     }
-
-    public List<Aluno> verAlunosMatriculados(Disciplina disciplina) {
+    // Esse metodo deve ficar no controller?
+    /*
+    public List<Aluno> verAlunosMatriculados(@org.jetbrains.annotations.NotNull Disciplina disciplina) {
         return disciplina.getMatriculas().stream()
                 .map(Matricula::getAluno)
                 .toList();
     }
-
+*/
     // Getters e Setters
     public Long getId() {
         return id;
